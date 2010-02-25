@@ -23,8 +23,8 @@
   [(take-while-nth n pred coll)
    (drop-while-nth n pred coll)])
 
-(defmacro defnk
-  [fn-name & fn-tail]
+(defmacro fnk
+  [& fn-tail]
   (let [[args & body]          fn-tail
         [req-args kv-and-rest] (split-with symbol? args)
         [key-vals extras]      (split-with-nth 2 keyword? kv-and-rest)
@@ -34,14 +34,18 @@
         sym-vals               (apply hash-map (interleave syms vals))
         de-map                 {:keys (vec syms) :or sym-vals}
         extras                 (nth extras 1)]
-    `(defn ~fn-name
-       [~@req-args & options#]
+    `(fn [~@req-args & options#]
        (let [[key-vals# extras#] (split-with-nth 2 keyword? options#)
              ~de-map (apply hash-map key-vals#)
              ~extras extras#]
          ~@body))))
 
+(defmacro defnk
+  [fn-name & fn-tail]
+  `(def ~fn-name (fnk ~@fn-tail)))
+
 (defmacro defnk-
   "same as defnk, yielding non-public def"
   [name & decls]
   (list* `defnk (with-meta name (assoc (meta name) :private true)) decls))
+
