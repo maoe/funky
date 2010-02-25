@@ -1,14 +1,16 @@
 (ns org.clojars.maoe.funky
   (:gen-class))
 
-(defn- take-while-nth [n pred coll]
+(defn- take-while-nth
+  [n pred coll]
   (lazy-seq
    (when-let [s (seq coll)]
      (when (pred (first s))
        (concat (take n s)
                (take-while-nth n pred (drop n s)))))))
 
-(defn- drop-while-nth [n pred coll]
+(defn- drop-while-nth
+  [n pred coll]
   (lazy-seq
    (loop [p pred c coll]
      (when-let [s (seq c)]
@@ -16,11 +18,13 @@
          (recur p (drop n s))
          s)))))
 
-(defn- split-with-nth [n pred coll]
+(defn- split-with-nth
+  [n pred coll]
   [(take-while-nth n pred coll)
    (drop-while-nth n pred coll)])
 
-(defmacro defnk [fn-name & fn-tail]
+(defmacro defnk
+  [fn-name & fn-tail]
   (let [[args & body]          fn-tail
         [req-args kv-and-rest] (split-with symbol? args)
         [key-vals extras]      (split-with-nth 2 keyword? kv-and-rest)
@@ -36,3 +40,8 @@
              ~de-map (apply hash-map key-vals#)
              ~extras extras#]
          ~@body))))
+
+(defmacro defnk-
+  "same as defnk, yielding non-public def"
+  [name & decls]
+  (list* `defnk (with-meta name (assoc (meta name) :private true)) decls))
