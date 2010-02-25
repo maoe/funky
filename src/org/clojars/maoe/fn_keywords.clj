@@ -1,4 +1,4 @@
-(ns org.clojars.maoe.fn-keyword
+(ns org.clojars.maoe.fn-keywords
   (:gen-class))
 
 (defn- take-while-nth [n pred coll]
@@ -20,7 +20,7 @@
   [(take-while-nth n pred coll)
    (drop-while-nth n pred coll)])
 
-(defmacro defnk* [fn-name & fn-tail]
+(defmacro defnk [fn-name & fn-tail]
   (let [[args & body]          fn-tail
         [req-args kv-and-rest] (split-with symbol? args)
         [key-vals extras]      (split-with-nth 2 keyword? kv-and-rest)
