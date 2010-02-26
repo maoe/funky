@@ -18,23 +18,24 @@ Usage
     (ns your-project
       (:use org.clojars.maoe.funky))
      
-    ;; def with keywords
+    ;; def with keyword params
     (defnk f [x y :z 0 & extras]
       (println x y z extras))
      
-    ;; def- with keywords
+    ;; def- with keyword with keyword params
     (defnk- f- [x y :z 0 & extras]
       (println x y z extras))
      
-    ;; anonymous function with keywords
+    ;; anonymous function with keyword params
     (def g
       (fnk [x y :z 0 & extras]
         (println x y z extras)))
      
-    ;; letfn with keywords
+    ;; letfn with keyword params
     (letfn [(h [x y :z 0 & extras]
               (println x y z extras))
             (i [x y :z 0 & extras]
               (println x y z extras))]
       (h 1 2 3)
       (i 1 2 :z 3))
+

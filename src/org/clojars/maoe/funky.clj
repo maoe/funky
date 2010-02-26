@@ -1,4 +1,7 @@
-(ns org.clojars.maoe.funky)
+(ns
+  #^{:author "Mitsutoshi Aoe"
+     :doc "Macros for keyword parameters"}
+  org.clojars.maoe.funky)
 
 (defn- take-while-nth
   [n pred coll]
@@ -23,6 +26,7 @@
    (drop-while-nth n pred coll)])
 
 (defmacro fnk
+  "Same as clojure.core/fn with keyword params."
   [& fn-tail]
   (let [[args & body]          fn-tail
         [req-args kv-and-rest] (split-with symbol? args)
@@ -39,15 +43,17 @@
          ~@body))))
 
 (defmacro defnk
+  "Same as clojure.contrib.def/defnk with optional params."
   [fn-name & fn-tail]
   `(def ~fn-name (fnk ~@fn-tail)))
 
 (defmacro defnk-
-  "same as defnk, yielding non-public def"
+  "Same as defnk but yielding private def."
   [name & decls]
   (list* `defnk (with-meta name (assoc (meta name) :private true)) decls))
 
 (defmacro letfnk
+  "Same as letfnk with keyword params."
   [fnspecs & body]
   (let [args (mapcat (fn [[fname fargs & fbody]]
                        `(~fname (fnk ~fargs ~@fbody)))
