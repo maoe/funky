@@ -22,7 +22,7 @@ Usage
     (defnk f [x y :z 0 & extras]
       (println x y z extras))
      
-    ;; def- with keyword with keyword params
+    ;; def- with keyword params
     (defnk- f- [x y :z 0 & extras]
       (println x y z extras))
      
