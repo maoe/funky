@@ -27,13 +27,12 @@
   [& fn-tail]
   (let [[args & body]          fn-tail
         [req-args kv-and-rest] (split-with symbol? args)
-        [key-vals extras]      (split-with-nth 2 keyword? kv-and-rest)
+        [key-vals [_ extras]]  (split-with-nth 2 keyword? kv-and-rest)
         syms                   (map #(symbol (name %))
                                     (take-nth 2 key-vals))
         vals                   (take-nth 2 (rest key-vals))
         sym-vals               (apply hash-map (interleave syms vals))
-        de-map                 {:keys (vec syms) :or sym-vals}
-        extras                 (nth extras 1)]
+        de-map                 {:keys (vec syms) :or sym-vals}]
     `(fn [~@req-args & options#]
        (let [[key-vals# extras#] (split-with-nth 2 keyword? options#)
              ~de-map (apply hash-map key-vals#)
@@ -55,4 +54,3 @@
                        `(~fname (fnk ~fargs ~@fbody)))
                      fnspecs)]
     `(let [~@args] ~@body)))
-
