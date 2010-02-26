@@ -49,3 +49,10 @@
   [name & decls]
   (list* `defnk (with-meta name (assoc (meta name) :private true)) decls))
 
+(defmacro letfnk
+  [fnspecs & body]
+  (let [args (mapcat (fn [[fname fargs & fbody]]
+                       `(~fname (fnk ~fargs ~@fbody)))
+                     fnspecs)]
+    `(let [~@args] ~@body)))
+
