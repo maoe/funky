@@ -1,5 +1,4 @@
-(ns org.clojars.maoe.funky
-  (:gen-class))
+(ns org.clojars.maoe.funky)
 
 (defn- take-while-nth
   [n pred coll]
