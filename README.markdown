@@ -1,7 +1,7 @@
 funky
 ==============
 
-Miscellaneous macros for keyword parameter handling in Clojure
+Miscellaneous macros for keyword parameter (with optional params) handling in Clojure
 
 Installation
 -------------
