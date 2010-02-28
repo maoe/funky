@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>funky - Overview</title>
+    <title>org.clojars.maoe.funky API reference (funky)</title>
     <link href="static/favicon.png" rel="icon" />
     <link href="static/favicon.png" rel="shortcut icon" />
     <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
@@ -46,28 +46,70 @@ namespace.
                 <div id="right-sidebar"><div id="toc">
   <h1 class="nopad">Table of Contents</h1>
   <div style="margin-left: 1em;" class="toc-section">
-    <a href="#org.clojars.maoe.funky">org.clojars.maoe.funky</a>
-    
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#org.clojars.maoe.funky/defnk">defnk</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#org.clojars.maoe.funky/defnk-">defnk-</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#org.clojars.maoe.funky/fnk">fnk</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#org.clojars.maoe.funky/letfnk">letfnk</a>
+    </div>
     <br />
   </div>
 </div>
 </div>
-                <div id="content-tag"><h1 id="toc0">An Overview of the <span id="header-project">funky</span> API</h1>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">org.clojars.maoe.funky</span></h1>
+by <span id="author">Mitsutoshi Aoe</span><br />
+<br />Usage:
+<pre>
+(ns your-namespace
+  (:require <span id="long-name">org.clojars.maoe.funky</span>))
+</pre><pre>
+</pre><h2>Overview</h2>
+<pre id="namespace-docstr">Macros for keyword parameters</pre>
 <br />
-<div id="project-description">funky: Miscellaneous macros for keyword parameter handling</div>
-<br />
-<div id="namespace-entry">
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky">org.clojars.maoe.funky</h2>
-  by <span id="author">Mitsutoshi Aoe</span><br />
-  <a href="org.clojars.maoe.funky-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Macros for keyword parameters</pre>
+  <h2 id="org.clojars.maoe.funky/defnk">defnk</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (defnk fn-name &amp; fn-tail)
+</pre>
+  <pre id="var-docstr">Same as clojure.contrib.def/defnk with optional params.</pre>
   
-  Public variables and functions:
-  <span id="var-link"><a href="org.clojars.maoe.funky-api.html#org.clojars.maoe.funky/defnk" id="var-tag">defnk</a> </span><span id="var-link"><a href="org.clojars.maoe.funky-api.html#org.clojars.maoe.funky/defnk-" id="var-tag">defnk-</a> </span><span id="var-link"><a href="org.clojars.maoe.funky-api.html#org.clojars.maoe.funky/fnk" id="var-tag">fnk</a> </span><span id="var-link"><a href="org.clojars.maoe.funky-api.html#org.clojars.maoe.funky/letfnk" id="var-tag">letfnk</a> </span><br />
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="org.clojars.maoe.funky/defnk-">defnk-</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (defnk- name &amp; decls)
+</pre>
+  <pre id="var-docstr">Same as defnk but yielding private def.</pre>
+  
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="org.clojars.maoe.funky/fnk">fnk</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (fnk &amp; fn-tail)
+</pre>
+  <pre id="var-docstr">Same as clojure.core/fn with keyword params.</pre>
+  
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="org.clojars.maoe.funky/letfnk">letfnk</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (letfnk fnspecs &amp; body)
+</pre>
+  <pre id="var-docstr">Same as letfnk with keyword params.</pre>
   
 </div>
+
+
 </div>
               </div>
             </div>
