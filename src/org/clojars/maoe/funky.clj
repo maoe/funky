@@ -20,7 +20,7 @@
          (recur p (drop n s))
          s)))))
 
-(defn- split-with-nth
+(defn split-with-nth
   [n pred coll]
   [(take-while-nth n pred coll)
    (drop-while-nth n pred coll)])
