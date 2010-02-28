@@ -1,15 +1,15 @@
 funky
 ==============
 
-Miscellaneous macros for keyword parameter (with optional params) handling in Clojure
+Miscellaneous macros for keyword (and optional) parameter handling in Clojure
 
 Installation
 -------------
 
     (defproject your-project "0.0.1-SNAPSHOT"
       :description "descriptions for your project"
-      :dependencies [[..]
-                     [org.clojars.maoe/funky "0.0.1-SNAPSHOT"]]
+      :dependencies [[org.clojars.maoe/funky "0.0.1-SNAPSHOT"]
+                     ...]
       ...)
 
 Usage
@@ -18,11 +18,11 @@ Usage
     (ns your-project
       (:use org.clojars.maoe.funky))
      
-    ;; def with keyword params
+    ;; defn with keyword params
     (defnk f [x y :z 0 & extras]
       (println x y z extras))
      
-    ;; def- with keyword params
+    ;; defn- with keyword params
     (defnk- f- [x y :z 0 & extras]
       (println x y z extras))
      
