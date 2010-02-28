@@ -39,3 +39,11 @@ Usage
       (h 1 2 3)
       (i 1 2 :z 3))
 
+    ;; multimethods with keyword params
+    (defmulti f (fn [x & _] (class x)))
+    
+    (defmethodk f String [s :a "zero" :b "one" & extras]
+      (println s a b extras))
+    
+    (defmethodk f Integer [s :a 0 :b 1 & extras]
+      (println s a b extras))
