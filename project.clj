@@ -1,4 +1,4 @@
-(defproject org.clojars.maoe/funky "0.0.0-SNAPSHOT"
+(defproject org.clojars.maoe/funky "0.0.1"
   :description "funky: Miscellaneous macros for keyword parameter handling"
   :url "http://github.com/maoe/funky"
   :dependencies [[org.clojure/clojure "1.1.0-master-SNAPSHOT"]
