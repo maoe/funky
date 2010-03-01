@@ -8,7 +8,7 @@ Installation
 
     (defproject your-project "0.0.1-SNAPSHOT"
       :description "descriptions for your project"
-      :dependencies [[org.clojars.maoe/funky "0.0.2"]
+      :dependencies [[org.clojars.maoe/funky "0.0.3"]
                      ...]
       ...)
 
@@ -34,7 +34,7 @@ Usage
     ;; letfn with keyword params
     (letfn [(h [x y :z 0 & extras]
               (println x y z extras))
-            (i [x y :z 0 & extras]
+            (i [x y :z 0]
               (println x y z extras))]
       (h 1 2 3)
       (i 1 2 :z 3))
