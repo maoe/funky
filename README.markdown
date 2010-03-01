@@ -8,7 +8,7 @@ Installation
 
     (defproject your-project "0.0.1-SNAPSHOT"
       :description "descriptions for your project"
-      :dependencies [[org.clojars.maoe/funky "0.0.1"]
+      :dependencies [[org.clojars.maoe/funky "0.0.2"]
                      ...]
       ...)
 
@@ -40,10 +40,10 @@ Usage
       (i 1 2 :z 3))
 
     ;; multimethods with keyword params
-    (defmulti f (fn [x & _] (class x)))
+    (defmulti j (fn [x & _] (class x)))
     
-    (defmethodk f String [s :a "zero" :b "one" & extras]
+    (defmethodk j String [s :a "zero" :b "one" & extras]
       (println s a b extras))
     
-    (defmethodk f Integer [s :a 0 :b 1 & extras]
+    (defmethodk j Integer [s :a 0 :b 1 & extras]
       (println s a b extras))
