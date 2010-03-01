@@ -39,7 +39,7 @@
     `(fn [~@req-args & options#]
        (let [[key-vals# extras#] (split-with-nth 2 keyword? options#)
              ~de-map (apply hash-map key-vals#)
-             ~extras extras#]
+             ~@(when extras `(~extras extras#))]
          ~@body))))
 
 (defmacro defnk
