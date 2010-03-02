@@ -50,15 +50,17 @@
 
 (defmacro defnk-
   "Same as defnk but yielding private def."
-  [name & decls]
-  (list* `defnk (with-meta name (assoc (meta name) :private true)) decls))
+  [fn-name & fn-tail]
+  (list* `defnk (with-meta fn-name
+                  (assoc (meta fn-name) :private true))
+         fn-tail))
 
 (defmacro letfnk
   "Same as letfnk with keyword params."
-  [fnspecs & body]
+  [fn-specs & body]
   (let [args (mapcat (fn [[fname fargs & fbody]]
                        `(~fname (fnk ~fargs ~@fbody)))
-                     fnspecs)]
+                     fn-specs)]
     `(let [~@args] ~@body)))
 
 (defmacro defmethodk
