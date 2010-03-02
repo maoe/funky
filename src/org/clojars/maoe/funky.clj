@@ -28,18 +28,19 @@
 (defmacro fnk
   "Same as clojure.core/fn with keyword params."
   [& fn-tail]
-  (let [[args & body]          fn-tail
-        [req-args kv-and-rest] (split-with symbol? args)
-        [key-vals [_ extras]]  (split-with-nth 2 keyword? kv-and-rest)
-        syms                   (map #(symbol (name %))
-                                    (take-nth 2 key-vals))
-        vals                   (take-nth 2 (rest key-vals))
-        sym-vals               (apply hash-map (interleave syms vals))
-        de-map                 {:keys (vec syms) :or sym-vals}]
-    `(fn [~@req-args & options#]
-       (let [[key-vals# extras#] (split-with-nth 2 keyword? options#)
-             ~de-map (apply hash-map key-vals#)
-             ~@(when extras `(~extras extras#))]
+  (let [[args & body]            fn-tail
+        [req-args rest-args]     (split-with symbol? args)
+        [kv-args [_ extra-args]] (split-with-nth 2 keyword? rest-args)
+        syms                     (map #(symbol (name %))
+                                      (take-nth 2 kv-args))
+        vals                     (take-nth 2 (rest kv-args))
+        sym-vals                 (apply hash-map (interleave syms vals))
+        de-map                   {:keys (vec syms) :or sym-vals}
+        extras                   (gensym "extras")]
+    `(fn [~@req-args & params#]
+       (let [[kv-args# ~extras] (split-with-nth 2 keyword? params#)
+             ~de-map (apply hash-map kv-args#)
+             ~@(when extras `(~extra-args ~extras))]
          ~@body))))
 
 (defmacro defnk
@@ -64,4 +65,3 @@
   "Same as defmethod with keyword params."
   [multifn dispatch-val & fn-tail]
   `(. ~(with-meta multifn {:tag 'clojure.lang.MultiFn}) addMethod ~dispatch-val (fnk ~@fn-tail)))
-
