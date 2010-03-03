@@ -8,7 +8,7 @@ Installation
 
     (defproject your-project "0.0.1-SNAPSHOT"
       :description "descriptions for your project"
-      :dependencies [[org.clojars.maoe/funky "0.0.4"]
+      :dependencies [[org.clojars.maoe/funky "0.0.5"]
                      ...]
       ...)
 
