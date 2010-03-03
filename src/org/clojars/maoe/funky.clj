@@ -40,7 +40,8 @@
     `(fn [~@req-args & params#]
        (let [[kv-args# ~extras] (split-with-nth 2 keyword? params#)
              ~de-map (apply hash-map kv-args#)
-             ~@(when extras `(~extra-args ~extras))]
+             ~@(when extra-args
+                 `(~extra-args ~extras))]
          ~@body))))
 
 (defmacro defnk
