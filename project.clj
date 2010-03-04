@@ -6,4 +6,5 @@
   :dev-dependencies [[leiningen/lein-swank "1.1.0"]
                      [lein-clojars "0.5.0-SNAPSHOT"]
                      [autodoc "0.7.0"]]
+  :namespaces [org.clojars.maoe.funky]
   :repositories [["clojars" "http://clojars.org/repo"]])
