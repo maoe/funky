@@ -5,6 +5,7 @@
 
 (defn- take-while-nth
   [n pred coll]
+  {:pre [(pos? n)]}
   (lazy-seq
    (when-let [s (seq coll)]
      (when (pred (first s))
@@ -13,6 +14,7 @@
 
 (defn- drop-while-nth
   [n pred coll]
+  {:pre [(pos? n)]}
   (lazy-seq
    (loop [p pred c coll]
      (when-let [s (seq c)]
@@ -22,6 +24,7 @@
 
 (defn split-with-nth
   [n pred coll]
+  {:pre [(pos? n)]}
   [(take-while-nth n pred coll)
    (drop-while-nth n pred coll)])
 
