@@ -70,4 +70,6 @@
 (defmacro defmethodk
   "Same as defmethod with keyword params."
   [multifn dispatch-val & fn-tail]
-  `(. ~(with-meta multifn {:tag 'clojure.lang.MultiFn}) addMethod ~dispatch-val (fnk ~@fn-tail)))
+  `(. ~(with-meta multifn
+         {:tag 'clojure.lang.MultiFn})
+      addMethod ~dispatch-val (fnk ~@fn-tail)))
