@@ -29,7 +29,15 @@
    (drop-while-nth n pred coll)])
 
 (defmacro fnk
-  "Same as clojure.core/fn with keyword params."
+  "(fnk [params*] exprs*)
+
+  params => positional-params* keyword-params*, or
+            positional-params* keyword-params* & next-param
+  positional-param => binding-form
+  keyword-param => keyword default-value
+  next-param => binding-form
+
+  Anonymous function with keyword params."
   [& fn-tail]
   (let [[args & body]            fn-tail
         [req-args rest-args]     (split-with symbol? args)
