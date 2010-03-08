@@ -1,5 +1,5 @@
 (ns test
-  (:use org.clojars.maoe.funky)
+  (:use funky)
   (:use clojure.test))
 
 (deftest test-fnk
