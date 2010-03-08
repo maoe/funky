@@ -7,4 +7,4 @@
                      [lein-clojars "0.5.0-SNAPSHOT"]
                      [autodoc "0.7.0"]]
   :namespaces [funky]
-  :repositories [["clojars" "http://clojars.org/repo"]])
+  :repositories {"clojars" "http://clojars.org/repo"})
