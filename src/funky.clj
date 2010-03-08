@@ -1,7 +1,7 @@
 (ns
   #^{:author "Mitsutoshi Aoe"
      :doc "Macros for keyword parameters"}
-  org.clojars.maoe.funky)
+  funky)
 
 (defn- take-while-nth
   [n pred coll]

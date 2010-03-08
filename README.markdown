@@ -8,7 +8,7 @@ Installation
 
     (defproject your-project "0.0.1-SNAPSHOT"
       :description "descriptions for your project"
-      :dependencies [[org.clojars.maoe/funky "0.0.5"]
+      :dependencies [[org.clojars.maoe/funky "0.0.6"]
                      ...]
       ...)
 
@@ -16,7 +16,7 @@ Usage
 -------------
 
     (ns your-project
-      (:use org.clojars.maoe.funky))
+      (:use funky))
      
     ;; defn with keyword params
     (defnk f [x y :z 0 & extras]
