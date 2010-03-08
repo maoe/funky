@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>org.clojars.maoe.funky API reference (funky)</title>
+    <title>funky API reference (funky)</title>
     <link href="static/favicon.png" rel="icon" />
     <link href="static/favicon.png" rel="shortcut icon" />
     <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
@@ -34,7 +34,7 @@ namespace.
     <a class="wiki_link" href="api-index.html">API Index</a><br />
     <a class="wiki_link" href="#">Namespaces:</a>
     <ul id="left-sidebar-list">
-      <li><a href="org.clojars.maoe.funky-api.html" class="wiki_link">org.clojars.maoe.funky</a></li>
+      <li><a href="funky-api.html" class="wiki_link">funky</a></li>
     </ul>
   </div>
 </div>
@@ -48,26 +48,26 @@ namespace.
   <div style="margin-left: 1em;" class="toc-section">
     <a href="#toc0">Overview</a>
     <div style="margin-left: 1em;" class="toc-entry">
-      <a href="#org.clojars.maoe.funky/defmethodk">defmethodk</a>
+      <a href="#funky/defmethodk">defmethodk</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#org.clojars.maoe.funky/defnk">defnk</a>
+      <a href="#funky/defnk">defnk</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#org.clojars.maoe.funky/defnk-">defnk-</a>
+      <a href="#funky/defnk-">defnk-</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#org.clojars.maoe.funky/fnk">fnk</a>
+      <a href="#funky/fnk">fnk</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#org.clojars.maoe.funky/letfnk">letfnk</a>
+      <a href="#funky/letfnk">letfnk</a>
     </div>
     <br />
   </div>
 </div>
 </div>
-                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">org.clojars.maoe.funky</span></h1>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">funky</span></h1>
 by <span id="author">Mitsutoshi Aoe</span><br />
 <br />Usage:
 <pre>
 (ns your-namespace
-  (:require <span id="long-name">org.clojars.maoe.funky</span>))
+  (:require <span id="long-name">funky</span>))
 </pre><pre>
 </pre><h2>Overview</h2>
 <pre id="namespace-docstr">Macros for keyword parameters</pre>
@@ -76,7 +76,7 @@ by <span id="author">Mitsutoshi Aoe</span><br />
 <div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky/defmethodk">defmethodk</h2>
+  <h2 id="funky/defmethodk">defmethodk</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (defmethodk multifn dispatch-val &amp; fn-tail)
 </pre>
@@ -85,7 +85,7 @@ by <span id="author">Mitsutoshi Aoe</span><br />
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky/defnk">defnk</h2>
+  <h2 id="funky/defnk">defnk</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (defnk fn-name &amp; fn-tail)
 </pre>
@@ -94,7 +94,7 @@ by <span id="author">Mitsutoshi Aoe</span><br />
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky/defnk-">defnk-</h2>
+  <h2 id="funky/defnk-">defnk-</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (defnk- fn-name &amp; fn-tail)
 </pre>
@@ -103,16 +103,24 @@ by <span id="author">Mitsutoshi Aoe</span><br />
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky/fnk">fnk</h2>
+  <h2 id="funky/fnk">fnk</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (fnk &amp; fn-tail)
 </pre>
-  <pre id="var-docstr">Same as clojure.core/fn with keyword params.</pre>
+  <pre id="var-docstr">(fnk [params*] exprs*)
+
+params =&gt; positional-params* keyword-params*, or
+          positional-params* keyword-params* &amp; next-param
+positional-param =&gt; binding-form
+keyword-param =&gt; keyword default-value
+next-param =&gt; binding-form
+
+Anonymous function with keyword params.</pre>
   
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="org.clojars.maoe.funky/letfnk">letfnk</h2>
+  <h2 id="funky/letfnk">letfnk</h2>
   <span id="var-type">macro</span><br />
   <pre id="var-usage">Usage: (letfnk fn-specs &amp; body)
 </pre>
